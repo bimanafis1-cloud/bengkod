@@ -1,0 +1,17 @@
+﻿Multi-role routes (Laravel 12)
+
+===== php artisan route:list --except-vendor --no-ansi =====
+
+  GET|HEAD   / ...................................................................................... routes/web.php:6
+  GET|HEAD   admin/dashboard ......................................................................... admin.dashboard
+  GET|HEAD   dokter/dashboard ....................................................................... dokter.dashboard
+  GET|HEAD   login .................................................................. login › AuthController@showLogin
+  POST       login .............................................................................. AuthController@login
+  POST       logout ................................................................... logout › AuthController@logout
+  GET|HEAD   pasien/dashboard ....................................................................... pasien.dashboard
+  GET|HEAD   register ......................................................... register › AuthController@showRegister
+  POST       register ........................................................................ AuthController@register
+
+                                                                                                    Showing [9] routes
+
+
