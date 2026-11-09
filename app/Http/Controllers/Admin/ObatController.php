@@ -24,7 +24,7 @@ class ObatController extends Controller
     {
         $validated = $request->validate([
             'nama_obat' => ['required', 'string', 'max:255'],
-            'kemasan' => ['nullable', 'string', 'max:35'],
+            'kemasan' => ['required', 'string', 'max:35'],
             'harga' => ['required', 'integer', 'min:0'],
         ]);
 

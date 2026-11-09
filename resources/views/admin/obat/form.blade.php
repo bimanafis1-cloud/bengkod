@@ -19,12 +19,19 @@
 
     <div>
         <label for="kemasan" class="label">
-            <span class="label-text font-semibold">Kemasan</span>
+            <span class="label-text font-semibold">
+                Kemasan
+                @if ($kemasanRequired ?? false)
+                    <span class="text-error">*</span>
+                @else
+                    <span class="text-base-content/60">(opsional)</span>
+                @endif
+            </span>
         </label>
         <input id="kemasan" name="kemasan" type="text" maxlength="35"
             value="{{ old('kemasan', $obat->kemasan ?? '') }}"
             class="input input-bordered w-full @error('kemasan') input-error @enderror"
-            placeholder="Contoh: Tablet, Botol (opsional)">
+            placeholder="Contoh: Tablet, Botol" @if ($kemasanRequired ?? false) required @endif>
         @error('kemasan')
             <p class="mt-1 text-sm text-error">{{ $message }}</p>
         @enderror

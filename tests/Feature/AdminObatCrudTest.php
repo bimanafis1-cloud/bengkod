@@ -89,6 +89,20 @@ class AdminObatCrudTest extends TestCase
         $this->assertDatabaseCount('obat', 0);
     }
 
+    public function test_kemasan_is_required_when_creating_obat(): void
+    {
+        $this->from(route('obat.create'))
+            ->post(route('obat.store'), [
+                'nama_obat' => 'Parasetamol',
+                'kemasan' => '',
+                'harga' => 5000,
+            ])
+            ->assertRedirect(route('obat.create'))
+            ->assertSessionHasErrors(['kemasan']);
+
+        $this->assertDatabaseCount('obat', 0);
+    }
+
     public function test_obat_used_in_prescription_cannot_be_deleted(): void
     {
         $obat = Obat::create(['nama_obat' => 'Parasetamol', 'harga' => 5000]);

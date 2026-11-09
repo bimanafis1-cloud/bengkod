@@ -11,6 +11,7 @@
         @include('admin.obat.form', [
             'action' => route('obat.store'),
             'buttonText' => 'Simpan',
+            'kemasanRequired' => true,
         ])
     </section>
 </x-layouts.app>
